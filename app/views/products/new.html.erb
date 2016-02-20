@@ -1,0 +1,12 @@
+<div>
+	<%= form_for(@product) do |f| %>
+		<%= f.label :price %>
+		<%= f.text_field :price %>
+		<br/><br/>
+		<% f.label :name %>
+		<%= f.text_field :name %>
+		<br/><br/>
+		<%= f.submit 'Save' %>
+	<% end %>
+</div>
+<!--<form action='products/new' method='POST'>-->

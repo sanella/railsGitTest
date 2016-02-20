@@ -1,1 +1,31 @@
+<style>
+	.flash{
+		font-size: 40px;
+		color: red;
+		padding: 10px;
+	}
+</style>
+
 <h2>This is product page</h2>
+<p>Number of products: <%= @products_count %></p>
+<% if @products_count > 5 %>
+	<h3>Yes</h3>
+<% else %>
+	<h3>No</h3>
+<% end %>
+
+<h2>Products list</h2>
+<% unless flash[:notice].nil? %>
+	<div class="flash"><%= flash[:notice] %></div>
+<% end %>
+<div>
+	<% @products.each do |p| %>
+	<p>	
+		id: <%= p.id %>, 
+		name: <%= p.name %>
+		<%= link_to "Details", product_path(p) %>
+		<%= link_to "Edit", edit_product_path(p) %>
+		<%= link_to "Delete", product_path(p), method: :delete %>
+	</p>
+	<% end %>
+</div>
